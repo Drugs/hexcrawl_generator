@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jungle Hexcrawl Generator, made to help on designing descriptions and encounters on a Sandbox RPG game">
+    <meta name="keywords" content="jungle, hexcrawl, generator">
+    <title>Jungle Hexcrawl Generator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="forestTerrainFeatures.js"></script>
+    <script src="monsters.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Jungle Hexcrawl Generator</h1>
+        <div class="row mt-3">
+            <div class="col-lg-6">
+                <button type="button" class="btn btn-primary" id="rollButton">Roll All Tables</button>
+            </div>
+        </div>
+         <div class="row mt-3 mb-4">
+            <div class="col-lg-6">
+                <h3>Features</h3>
+                <p id="terrainFeatures"></p>
+                <p id="specialFeatures"></p>
+            </div>
+            <div class="col-lg-6">
+                <h3>Daytime</h3>
+                <p id="daytimeFlora"></p>
+                <p id="daytimeFauna"></p>
+            </div>
+            <div class="col-lg-6">
+                <h3>Nighttime</h3>
+                <p id="nighttimeFlora"></p>
+                <p id="nighttimeFauna"></p>
+            </div>
+            <div class="col-lg-6">
+                <h3 id="mishapTitle">Mishap</h3>
+                <p id="possibleMishap"></p>
+            </div>
+            <div class="col-lg-6 mb-4">
+                <h3>Encounter</h3>
+                <b>Distance:</b> <span id="engagementDistance"></span>
+                <span id="choose"></span>
+            </div>
+            <hr>
+        </div>
+        
+    </div>
+    <script>
+        function getRandomElement(array) {
+            return array[Math.floor(Math.random() * array.length)];
+        }
+
+        function rollAllTables() {
+            document.getElementById("terrainFeatures").innerHTML = getRandomElement(terrainFeatures);
+            document.getElementById("terrainFeatures").innerHTML +='<br>'+getRandomElement(terrainFeatures);
+            let special = getRandomElement(specialFeatures)
+            document.getElementById("specialFeatures").innerHTML = '<b>'+special.description+'</b>:'+' '+special.consequence;
+            document.getElementById("daytimeFlora").textContent = getRandomElement(daytimeFlora);
+            document.getElementById("nighttimeFlora").textContent = getRandomElement(nighttimeFlora);
+            document.getElementById("daytimeFauna").textContent = getRandomElement(daytimeFauna);
+            document.getElementById("nighttimeFauna").textContent = getRandomElement(nighttimeFauna);
+            document.getElementById("engagementDistance").innerHTML = getRandomElement(engagementDistance);
+            let chosen = getRandomElement(choose);
+            let mishap = getRandomElement(mishaps);
+            let test = eval(mishap);
+            if(mishap == 'naturalMishaps'){
+                document.getElementById("mishapTitle").innerHTML = 'Natural Mishap';   
+            }else{
+                document.getElementById("mishapTitle").innerHTML = 'Supernatural Mishap';   
+            }
+            document.getElementById("possibleMishap").innerHTML = getRandomElement(test);
+            if (chosen  == 'forestMonsters'){
+                let monster = '<br><b>You find:</b> '+ getRandomElement(forestMonsters);
+                monster += '<br><b>Attitude:</b> '+getRandomElement(monsterAttitudeTable);
+                monster += '<br><b>Tracks:</b> '+getRandomElement(monsterEncounterTypes);
+                monster += '<br><b>Activity:</b> '+getRandomElement(bearTable);
+                document.getElementById("choose").innerHTML = monster;
+            }else{
+                let humanoid = '<br><b>You find:</b> '+ getRandomElement(forestHumanoids);
+                humanoid += '<br><b>Activity:</b> '+ getRandomElement(mercenaryEncounters);
+                humanoid += '<br><b>Tracks:</b> '+getRandomElement(humanTracks);
+
+                document.getElementById("choose").innerHTML = humanoid;
+            }
+            
+        }
+
+        rollAllTables(); // Roll all tables when the page loads
+
+        const rollButton = document.getElementById("rollButton")
+        rollButton.addEventListener("click", rollAllTables);
+    </script>
+  
+</body>
+</html>
