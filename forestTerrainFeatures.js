@@ -137,8 +137,8 @@ const supernaturalMishaps = [
 
 const specialFeatures = [
   {
-    description: "Ancient Stone Circle Aligned with Celestial Bodies",
-    consequence: "Performing a ritual in the circle grants insights into celestial phenomena or future events."
+    description: "Ancient Magic Circle",
+    consequence: "Performing a ritual in the circle may reveal it's secrets, or release an ancient prisoner."
   },
   {
     description: "Eerie Standing Stones of Ancient Ceremony",
@@ -217,7 +217,7 @@ const specialFeatures = [
     consequence: "Listening to the whispers offers guidance or cryptic knowledge."
   },
   {
-    description: "Stargazing Rock Circle with a Celestial Observatory",
+    description: "Rusted Stargazing Brass Artefact",
     consequence: "Operating the observatory can reveal celestial secrets, upcoming celestial events, or locations of hidden treasures."
   },{
     description: "Eerie Standing Stones of Ancient Ceremony",
@@ -294,10 +294,6 @@ const specialFeatures = [
   {
     description: "Whispering Wind-Through-Stone Passage",
     consequence: "A narrow passage between two colossal stones where the wind produces melodious whispers."
-  },
-  {
-    description: "Stargazing Rock Circle with a Celestial Observatory",
-    consequence: "A circular arrangement of rocks surrounding a celestial observatory where astronomers studied the night sky."
   }
 ];
 

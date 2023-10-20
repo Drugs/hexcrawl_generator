@@ -1,15 +1,15 @@
 const engagementDistance = [
-  "Melee (4sq)",
-  "Short Range (8sq)",
-  "Medium Range (16sq)",
-  "Long Range (32sq)",
-  "Extreme Range (64sq)",
+  "Near (5sq)",
+  "Knife's throw (10sq)",
+  "Medium Range (15sq)",
+  "Far (20sq)",
+  "Very far(40sq)",
 ];
 
 const monsterEncounterTypes = [
-  "Lair",
+  "The Monster Lair",
   "Old Tracks",
-  "Common Tracks",
+  "Fresh Tracks",
   "Hunted Carcass",
   "Droppings",
   "Prints",
@@ -51,7 +51,7 @@ const forestHumanoids = [
 const forestMonsters = [
   "Ape",
   "Bear",
-  "Beetle",
+  "Fire Beetle",
   "Blink Dog",
   "Boar",
   "Cat, Great",
@@ -172,3 +172,211 @@ const bearTable = [
   "Soft-spoken, gifted speech by a local Druid",
   "Trying to dislodge an arrow from their shoulder"
 ];
+const rollTraps = [
+	"jungleTraps",
+	"animalTraps",
+	"magicalTraps"
+]
+const allTraps = {
+		jungleTraps: [
+		  {
+			description: "Sleeping Pitfall",
+			consequence: "Characters that fall in the trap take damage and have to make Constitution save vs sleep.",
+			type: "Man made traps"
+		  },
+		  {
+			description: "Venomous Leech Pitfall",
+			consequence: "Characters falling into the pit are swarmed by venomous leeches, which can cause ongoing damage.",
+			type: "Man made traps"
+		  },
+		  {
+			description: "Thorny Underbrush Pitfall",
+			consequence: "Characters falling into the pit are pierced by thorns, taking piercing damage and possibly becoming restrained.",
+			type: "Man made traps"
+		  },
+		  {
+			description: "Ghostly Summons",
+			consequence: "Characters falling Wisdom saves become frightened and disoriented.",
+			type: "Man made traps"
+		  },
+		  {
+			description: "Venomous Plant Sling Trap",
+			consequence: "Characters hit by venomous plant projectiles take poison damage and may be poisoned.",
+			type: "Man made traps"
+		  },
+		  {
+			description: "Piranha-Infested Waters",
+			consequence: "Characters swimming in the water are attacked by piranhas, taking damage and risking infection.",
+			type: "Man made traps"
+		  },
+		  {
+			description: "Blinding Flash Trap",
+			consequence: "Characters triggering the trap are temporarily blinded and have disadvantage on attacks and checks.",
+			type: "Man made traps"
+		  },
+		  {
+			description: "Venomous Dart Spray",
+			consequence: "Characters triggering the trap are hit by a spray of venomous darts, taking poison damage and possibly becoming poisoned.",
+			type: "Man made traps"
+		  },
+		  {
+			description: "Falling Giant Spider Web",
+			consequence: "Characters caught in the web become restrained and may be attacked by lurking giant spiders.",
+			type: "Man made traps"
+		  },
+		  {
+			description: "Aerial Vine Snare",
+			consequence: "Characters triggered by the tripwire are lifted off the ground and left vulnerable to ranged attacks.",
+			type: "Man made traps"
+		  },
+		  {
+			description: "Spike-Studded Boulder Swing Trap",
+			consequence: "Characters failing to avoid the trap are struck by a log with spikes, taking damage and potentially becoming impaled.",
+			type: "Man made traps"
+		  },
+		  {
+			description: "Mystical Rune Trap",
+			consequence: "Characters triggering the runes are affected by a magical curse or enchantment, causing various effects.",
+			type: "Man made traps"
+		  },
+		  {
+			description: "Tangling Roots Snare",
+			consequence: "Characters ensnared by the roots must make Strength or Dexterity checks to break free or be restrained.",
+			type: "Man made traps"
+		  },
+		  {
+			description: "Venomous Plant with Quicksand",
+			consequence: "Characters must make Strength checks to escape quicksand while fighting an Ensnaring Venomous Plant",
+			type: "Man made traps"
+		  },
+		  {
+			description: "Falling Mudslide Trap",
+			consequence: "Characters failing to avoid the trap are swept away by a rush of mud and debris, getting slowed and stuck in difficult terrain.",
+			type: "Man made traps"
+		  },
+		  {
+			description: "Thorny Vines Snare with Bees",
+			consequence: "Characters triggering the trap are ensnared in thorny vines and attacked by a swarm of bees, taking damage and risking poison.",
+			type: "Man made traps"
+		  },
+		  {
+			description: "Camouflaged Pitfall with Poisoned Darts",
+			consequence: "Characters falling into the pit are struck by poisoned darts, taking poison damage and potentially becoming paralyzed.",
+			type: "Man made traps"
+		  },
+		  {
+			description: "Venomous Fungus Release",
+			consequence: "Characters triggering the trap release venomous spores, taking poison damage and risking poison effects.",
+			type: "Man made traps"
+		  },
+		  {
+			description: "Sinking Bog Trap",
+			consequence: "Characters stepping into the bog sink into muck, needing to make Strength checks to escape or risk becoming stuck.",
+			type: "Man made traps"
+		  },
+		  {
+			description: "Cave-In Trap with Quicksand",
+			consequence: "Characters triggering the cave-in are buried in quicksand, making Strength checks to escape or becoming submerged.",
+			type: "Man made traps"
+		  }
+		],
+		animalTraps: [
+		  {
+			name: "Pitfall Trap",
+			description: "A concealed pitfall trap designed to capture small animals.",
+			type: "Animal Trap"
+		  },
+		  {
+			name: "Box Trap",
+			description: "A baited box trap with a triggering mechanism.",
+			type: "Animal Trap"
+		  },
+		  {
+			name: "Deadfall Snare",
+			description: "A snare designed to catch animals by trapping them under a heavy weight.",
+			type: "Animal Trap"
+		  },
+		  {
+			name: "Net Trap",
+			description: "A net is hidden on a path to entangle the prey.",
+			type: "Animal Trap"
+		  },
+		  {
+			name: "Cage Trap",
+			description: "A baited cage trap designed to catch small animals alive.",
+			type: "Animal Trap"
+		  },
+		  {
+			name: "Tripwire Snare",
+			description: "A snare with a tripwire that captures by the leg.",
+			type: "Animal Trap"
+		  },
+		  {
+			name: "Gill Net",
+			description: "A submerged spiked net in a stream or pond.",
+			type: "Animal Trap"
+		  },
+		  {
+			name: "Scare Trap",
+			description: "This trap releases a sudden loud sound to scare off intruders.",
+			type: "Animal Trap"
+		  },
+		  {
+			name: "Alarm Trap",
+			description: "A trap that triggers a loud alarm or ligth signal.",
+			type: "Animal Trap"
+		  },
+		  {
+			name: "Scent Lure",
+			description: "A scent trap with sleeping herbs.",
+			type: "Animal Trap"
+		  }
+		],
+		magicalTraps: [
+		  {
+			description: "An illusory treasure conceals a pitfall trap.",
+			consequence: "Characters must make Intelligence saving throws to avoid falling into the pit and take damage",
+			type: "Magical Trap"
+		  },
+		  {
+			description: "A magical trap triggers a teleportation portal.",
+			consequence: "Characters who activate the trap are teleported to random locations in the jungle.",
+			type: "Magical Trap"
+		  },
+		  {
+			description: "A hidden trap releases a blast of elemental energy.",
+			consequence: "Characters caught in the blast take elemental damage.",
+			type: "Magical Trap"
+		  },
+		  {
+			description: "A magical field causes time to pass at different rates.",
+			consequence: "Characters may experience accelerated or slowed time, affecting their actions.",
+			type: "Magical Trap"
+		  },
+		  {
+			description: "A magical trap creates a localized area with altered gravity.",
+			consequence: "Characters affected are levitated 20sq",
+			type: "Magical Trap"
+		  },
+		  {
+			description: "An illusion conceals a tempting treasure hoard.",
+			consequence: "Characters attempting to take the illusory treasures become ensnared in a magical net.",
+			type: "Magical Trap"
+		  },
+		  {
+			description: "Spectral hands ensnare victims in a magical grasp.",
+			consequence: "Characters caught in the hands are restrained and may take necrotic damage.",
+			type: "Magical Trap"
+		  },
+		  {
+			description: "A magical trap opens a rift to another plane.",
+			consequence: "Characters caught in the rift may be transported to an unfamiliar and dangerous plane of existence.",
+			type: "Magical Trap"
+		  },
+		  {
+			description: "A magical tune lures characters into a trap.",
+			consequence: "Characters who succumb to the song may become charmed or disoriented.",
+			type: "Magical Trap"
+		  }
+		]
+	};
