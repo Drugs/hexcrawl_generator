@@ -1,2 +1,4 @@
-# hexcrawl_generator
-5e compatible Hex Description Generator
+# Hexcrawl Generator
+Tabletop Ambient Description Generator
+
+Rollable tables inspired by Hexdescribe and OSE Encounter Activity Table Project
