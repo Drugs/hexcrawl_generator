@@ -182,102 +182,102 @@ const allTraps = {
 		  {
 			description: "Sleeping Pitfall",
 			consequence: "Characters that fall in the trap take damage and have to make Constitution save vs sleep.",
-			type: "Man made traps"
+			type: "Jungle Traps"
 		  },
 		  {
 			description: "Venomous Leech Pitfall",
 			consequence: "Characters falling into the pit are swarmed by venomous leeches, which can cause ongoing damage.",
-			type: "Man made traps"
+			type: "Jungle Traps"
 		  },
 		  {
 			description: "Thorny Underbrush Pitfall",
 			consequence: "Characters falling into the pit are pierced by thorns, taking piercing damage and possibly becoming restrained.",
-			type: "Man made traps"
+			type: "Jungle Traps"
 		  },
 		  {
 			description: "Ghostly Summons",
 			consequence: "Characters falling Wisdom saves become frightened and disoriented.",
-			type: "Man made traps"
+			type: "Jungle Traps"
 		  },
 		  {
 			description: "Venomous Plant Sling Trap",
 			consequence: "Characters hit by venomous plant projectiles take poison damage and may be poisoned.",
-			type: "Man made traps"
+			type: "Jungle Traps"
 		  },
 		  {
 			description: "Piranha-Infested Waters",
 			consequence: "Characters swimming in the water are attacked by piranhas, taking damage and risking infection.",
-			type: "Man made traps"
+			type: "Jungle Traps"
 		  },
 		  {
 			description: "Blinding Flash Trap",
 			consequence: "Characters triggering the trap are temporarily blinded and have disadvantage on attacks and checks.",
-			type: "Man made traps"
+			type: "Jungle Traps"
 		  },
 		  {
 			description: "Venomous Dart Spray",
 			consequence: "Characters triggering the trap are hit by a spray of venomous darts, taking poison damage and possibly becoming poisoned.",
-			type: "Man made traps"
+			type: "Jungle Traps"
 		  },
 		  {
 			description: "Falling Giant Spider Web",
 			consequence: "Characters caught in the web become restrained and may be attacked by lurking giant spiders.",
-			type: "Man made traps"
+			type: "Jungle Traps"
 		  },
 		  {
 			description: "Aerial Vine Snare",
 			consequence: "Characters triggered by the tripwire are lifted off the ground and left vulnerable to ranged attacks.",
-			type: "Man made traps"
+			type: "Jungle Traps"
 		  },
 		  {
 			description: "Spike-Studded Boulder Swing Trap",
 			consequence: "Characters failing to avoid the trap are struck by a log with spikes, taking damage and potentially becoming impaled.",
-			type: "Man made traps"
+			type: "Jungle Traps"
 		  },
 		  {
 			description: "Mystical Rune Trap",
 			consequence: "Characters triggering the runes are affected by a magical curse or enchantment, causing various effects.",
-			type: "Man made traps"
+			type: "Jungle Traps"
 		  },
 		  {
 			description: "Tangling Roots Snare",
 			consequence: "Characters ensnared by the roots must make Strength or Dexterity checks to break free or be restrained.",
-			type: "Man made traps"
+			type: "Jungle Traps"
 		  },
 		  {
 			description: "Venomous Plant with Quicksand",
 			consequence: "Characters must make Strength checks to escape quicksand while fighting an Ensnaring Venomous Plant",
-			type: "Man made traps"
+			type: "Jungle Traps"
 		  },
 		  {
 			description: "Falling Mudslide Trap",
 			consequence: "Characters failing to avoid the trap are swept away by a rush of mud and debris, getting slowed and stuck in difficult terrain.",
-			type: "Man made traps"
+			type: "Jungle Traps"
 		  },
 		  {
 			description: "Thorny Vines Snare with Bees",
 			consequence: "Characters triggering the trap are ensnared in thorny vines and attacked by a swarm of bees, taking damage and risking poison.",
-			type: "Man made traps"
+			type: "Jungle Traps"
 		  },
 		  {
 			description: "Camouflaged Pitfall with Poisoned Darts",
 			consequence: "Characters falling into the pit are struck by poisoned darts, taking poison damage and potentially becoming paralyzed.",
-			type: "Man made traps"
+			type: "Jungle Traps"
 		  },
 		  {
 			description: "Venomous Fungus Release",
 			consequence: "Characters triggering the trap release venomous spores, taking poison damage and risking poison effects.",
-			type: "Man made traps"
+			type: "Jungle Traps"
 		  },
 		  {
 			description: "Sinking Bog Trap",
 			consequence: "Characters stepping into the bog sink into muck, needing to make Strength checks to escape or risk becoming stuck.",
-			type: "Man made traps"
+			type: "Jungle Traps"
 		  },
 		  {
 			description: "Cave-In Trap with Quicksand",
 			consequence: "Characters triggering the cave-in are buried in quicksand, making Strength checks to escape or becoming submerged.",
-			type: "Man made traps"
+			type: "Jungle Traps"
 		  }
 		],
 		animalTraps: [

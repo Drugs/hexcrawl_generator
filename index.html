@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Jungle Hexcrawl Generator, made to help on designing descriptions and encounters on a Sandbox RPG game">
-    <meta name="keywords" content="jungle, hexcrawl, generator">
-    <title>Jungle Hexcrawl Generator</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jungle Hexcrawl Generator, made to help on designing descriptions and encounters on a Sandbox RPG game">
+  <meta name="keywords" content="jungle, hexcrawl, generator">
+  <title>Jungle Hexcrawl Generator</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="forestTerrainFeatures.js"></script>
-    <script src="monsters.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="forestTerrainFeatures.js"></script>
+  <script src="monsters.js"></script>
 	<style type="text/css">
 		.bi {
 			font-size: 0.9em;
@@ -26,117 +26,150 @@
 			margin-left:-10px;
 			z-index: 20 !important;
 		}
+		div > h3{
+			display: flex;
+		}
 	</style>
 </head>
 <body>
-    <div class="container">
-        <h1 class="mt-2">Jungle Hexcrawl Generator</h1>
-        <div class="row mt-3">
-            <div class="col-lg-6">
-                <button type="button" class="btn btn-primary" id="rollButton">Roll All Tables</button>
-            </div>
-        </div>
-         <div class="row mt-3 mb-4">
-            <div id="features" class="col-lg-6" onmouseover="showButton('block' , 'featuresButton')" onmouseout="showButton('none' , 'featuresButton')">
-                <h3 style="display: flex;">Features 
+	<div class="container">
+		<h1 class="mt-2">Jungle Hexcrawl Generator</h1>
+		<div class="row mt-3">
+			<div class="col-lg-6">
+				<button type="button" class="btn btn-primary" id="rollButton">Roll All Tables</button>
+			</div>
+		</div>
+		<div class="row mt-3 mb-4">
+			<div id="features" class="col-lg-6" onmouseover="showButton('block' , 'featuresButton')" onmouseout="showButton('none' , 'featuresButton')">
+				<h3>Features 
 					<a alt='Reroll!' data-bs-toggle="tooltip" data-bs-title="Click to reroll!" id="featuresButton" style="display: none; margin-left:1em; cursor:pointer;" onclick="rerollFeatures()">
 						<i id="dice" class="bi bi-dice-3-fill"></i><i class="bi bi-dice-6-fill"></i>
 					</a>
 				</h3>
-                <p id="terrainFeatures"></p>
-                <p id="specialFeatures"></p>
-            </div>
-            <div id="mishap" class="col-lg-6">
-                <h3 id="mishapTitle">Mishap</h3>
-                <p id="possibleMishap"></p>
-            </div>
-            <div id="dayFauna" class="col-lg-6">
-                <h3>Daytime</h3>
-                <p class="mb-0" id="daytimeFlora"></p>
-                <p id="daytimeFauna"></p>
-            </div>
-            <div id="nightFauna" class="col-lg-6">
-                <h3>Nighttime</h3>
-                <p class="mb-0" id="nighttimeFlora"></p>
-                <p id="nighttimeFauna"></p>
-            </div>
-            <div id="encounter" class="col-lg-6 mb-3">
-                <h3>Encounter</h3>
-                <b>Distance:</b> <span id="engagementDistance"></span>
-                <span class="mb-1" id="choose"></span>
-            </div>
-			<div id="retrap" class="mb-2 col-lg-6 ">
-                <h3 id="trapTitle">Trap</h3>
-                <p id="traps"></p>
-            </div>
-        </div>
-            <hr class="mb-4">
-        
-    </div>
-    <script>
+				<p id="terrainFeatures"></p>
+				<p id="specialFeatures"></p>
+			</div>
+			<div id="mishap" class="col-lg-6" onmouseover="showButton('block' , 'mishapButton')" onmouseout="showButton('none' , 'mishapButton')">
+				<h3 id="mishapTitle" >Mishap
+					<a alt='Reroll!' data-bs-toggle="tooltip" data-bs-title="Click to reroll!" id="mishapButton" style="display: none; margin-left:1em; cursor:pointer;" onclick="rollMishap()">
+						<i id="dice" class="bi bi-dice-3-fill"></i><i class="bi bi-dice-6-fill"></i>
+					</a>
+				</h3>
+				<p id="possibleMishap"></p>
+			</div>
+			<div id="dayFauna" class="col-lg-6" onmouseover="showButton('block' , 'dayFaunaBtn')" onmouseout="showButton('none' , 'dayFaunaBtn')">
+				<h3>Daytime
+					<a alt='Reroll!' data-bs-toggle="tooltip" data-bs-title="Click to reroll!" id="dayFaunaBtn" style="display: none; margin-left:1em; cursor:pointer;" onclick="rollDaytime()">
+						<i id="dice" class="bi bi-dice-3-fill"></i><i class="bi bi-dice-6-fill"></i>
+					</a>
+				</h3>
+				<p class="mb-0" id="daytimeFlora"></p>
+				<p id="daytimeFauna"></p>
+			</div>
+			<div id="nightFauna" class="col-lg-6" onmouseover="showButton('block' , 'nightFaunaBtn')" onmouseout="showButton('none' , 'nightFaunaBtn')">
+				<h3>Nighttime
+					<a alt='Reroll!' data-bs-toggle="tooltip" data-bs-title="Click to reroll!" id="nightFaunaBtn" style="display: none; margin-left:1em; cursor:pointer;" onclick="rollNightime()">
+						<i id="dice" class="bi bi-dice-3-fill"></i><i class="bi bi-dice-6-fill"></i>
+					</a>
+				</h3>
+				<p class="mb-0" id="nighttimeFlora"></p>
+				<p id="nighttimeFauna"></p>
+			</div>
+			<div id="encounter" class="col-lg-6 mb-3" onmouseover="showButton('block' , 'encounterBtn')" onmouseout="showButton('none' , 'encounterBtn')">
+				<h3>Encounter
+					<a alt='Reroll!' data-bs-toggle="tooltip" data-bs-title="Click to reroll!" id="encounterBtn" style="display: none; margin-left:1em; cursor:pointer;" onclick="rollEncounter()">
+						<i id="dice" class="bi bi-dice-3-fill"></i><i class="bi bi-dice-6-fill"></i>
+					</a>
+				</h3>
+				<b>Distance:</b> <span id="engagementDistance"></span>
+				<span class="mb-1" id="choose"></span>
+			</div>
+			<div id="retrap" class="mb-2 col-lg-6 " onmouseover="showButton('block' , 'trapBtn')" onmouseout="showButton('none' , 'trapBtn')">
+				<h3 id="trapTitle">Trap
+					<a alt='Reroll!' data-bs-toggle="tooltip" data-bs-title="Click to reroll!" id="trapBtn" style="display: none; margin-left:1em; cursor:pointer;" onclick="rolltraps()">
+						<i id="dice" class="bi bi-dice-3-fill"></i><i class="bi bi-dice-6-fill"></i>
+					</a>
+				</h3>
+				<p id="traps"></p>
+			</div>
+		</div>
+      <hr class="mb-4">
+    
+	</div>
+	<script>
 		const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
 		const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
-		document.getElementById("dice").style.zIndex = "0";
-        function getRandomElement(array) {
-            return array[Math.floor(Math.random() * array.length)];
-        }
+		document.getElementById("dice").style.zIndex = "0";// Starting tooltips
+		
+		function getRandomElement(array) {
+		  return array[Math.floor(Math.random() * array.length)];
+		}
 
-        function rollAllTables() {
+    function rollAllTables() {
+		rerollFeatures();
+		rolltraps();
+		rollDaytime();
+		rollNightime();
+		rollMishap();
+		rollEncounter();
+    }
+
+    rollAllTables(); // Roll all tables when the page loads
+		
+		function showButton(arg , div) {
+			const button = document.getElementById(div);
+			//console.dir(document.getElementById("mishapTitle"))
+			button.style.display = arg;
+		}
+		function rollMishap() {
+			let mishap = getRandomElement(mishaps);
+			let test = eval(mishap);
+			if(mishap == 'naturalMishaps'){
+				document.getElementById("mishapTitle").firstChild.data = 'Natural Mishap';  
+			}else{
+				document.getElementById("mishapTitle").firstChild.data = 'Supernatural Mishap';  
+			}
+			document.getElementById("possibleMishap").innerHTML = getRandomElement(test);
+		}
+		function rollEncounter() {
+			let chosen = getRandomElement(choose);
+			document.getElementById("engagementDistance").innerHTML = getRandomElement(engagementDistance);
+			if (chosen == 'forestMonsters'){
+				let monster = '<br><b>You find:</b> '+ getRandomElement(forestMonsters);
+				monster += '<br><b>Attitude:</b> '+getRandomElement(monsterAttitudeTable);
+				monster += '<br><b>On the way, you find: </b> '+getRandomElement(monsterEncounterTypes);
+				monster += '<br><b>Activity:</b> '+getRandomElement(bearTable);
+				document.getElementById("choose").innerHTML = monster;
+			}else{
+				let humanoid = '<br><b>You find:</b> '+ getRandomElement(forestHumanoids);
+				humanoid += '<br><b>Activity:</b> '+ getRandomElement(mercenaryEncounters);
+				humanoid += '<br><b>On the way, you find: </b>'+getRandomElement(humanTracks);
+				document.getElementById("choose").innerHTML = humanoid;
+			}
+		}
+		function rerollFeatures() {
 			let feat1 = getRandomElement(terrainFeatures);
 			let feat2 = getRandomElement(terrainFeatures);
-            document.getElementById("terrainFeatures").innerHTML = feat1;
 			while(feat1 == feat2){
 				feat2 = getRandomElement(terrainFeatures);
 			}
-            document.getElementById("terrainFeatures").innerHTML +='<br>'+getRandomElement(terrainFeatures);
-            let special = getRandomElement(specialFeatures)
-            document.getElementById("specialFeatures").innerHTML = '<b>'+special.description+'</b>:'+' '+special.consequence;
-            document.getElementById("daytimeFlora").textContent = getRandomElement(daytimeFlora);
-            document.getElementById("nighttimeFlora").textContent = getRandomElement(nighttimeFlora);
-            document.getElementById("daytimeFauna").textContent = getRandomElement(daytimeFauna);
-            document.getElementById("nighttimeFauna").textContent = getRandomElement(nighttimeFauna);
-            document.getElementById("engagementDistance").innerHTML = getRandomElement(engagementDistance);
-	    rolltraps();
-            let chosen = getRandomElement(choose);
-            let mishap = getRandomElement(mishaps);
-            let test = eval(mishap);
-            if(mishap == 'naturalMishaps'){
-                document.getElementById("mishapTitle").innerHTML = 'Natural Mishap';   
-            }else{
-                document.getElementById("mishapTitle").innerHTML = 'Supernatural Mishap';   
-            }
-            document.getElementById("possibleMishap").innerHTML = getRandomElement(test);
-            if (chosen  == 'forestMonsters'){
-                let monster = '<br><b>You find:</b> '+ getRandomElement(forestMonsters);
-                monster += '<br><b>Attitude:</b> '+getRandomElement(monsterAttitudeTable);
-                monster += '<br><b>On the way, you find:</b> '+getRandomElement(monsterEncounterTypes);
-                monster += '<br><b>Activity:</b> '+getRandomElement(bearTable);
-                document.getElementById("choose").innerHTML = monster;
-            }else{
-                let humanoid = '<br><b>You find:</b> '+ getRandomElement(forestHumanoids);
-                humanoid += '<br><b>Activity:</b> '+ getRandomElement(mercenaryEncounters);
-                humanoid += '<br><b>On the way, you find:</b>'+getRandomElement(humanTracks);
-                document.getElementById("choose").innerHTML = humanoid;
-            }
-	
-        }
-		
-		function showButton(arg , div) {
-		  const button = document.getElementById(div);
-		  button.style.display = arg;
+			document.getElementById("terrainFeatures").innerHTML = feat1;
+			document.getElementById("terrainFeatures").innerHTML +='<br>'+feat2;
+			let special = getRandomElement(specialFeatures)
+			document.getElementById("specialFeatures").innerHTML = '<b>'+special.description+'</b>:'+' '+special.consequence;
 		}
-		
-		function rerollFeatures() {
-			document.getElementById("terrainFeatures").innerHTML = getRandomElement(terrainFeatures);
-            document.getElementById("terrainFeatures").innerHTML +='<br>'+getRandomElement(terrainFeatures);
-            let special = getRandomElement(specialFeatures)
-            document.getElementById("specialFeatures").innerHTML = '<b>'+special.description+'</b>:'+' '+special.consequence;
+		function rollDaytime() {
+			document.getElementById("daytimeFlora").innerHTML = '<b>Flora:</b> '+getRandomElement(daytimeFlora);
+			document.getElementById("daytimeFauna").innerHTML = '<b>Fauna:</b> '+getRandomElement(daytimeFauna);
 		}
-		
+		function rollNightime() {
+			document.getElementById("nighttimeFlora").innerHTML = '<b>Flora:</b> '+getRandomElement(nighttimeFlora);
+			document.getElementById("nighttimeFauna").innerHTML = '<b>Fauna:</b> '+getRandomElement(nighttimeFauna);
+		}
 		function rolltraps() {
 			let chooseTrap = getRandomElement(rollTraps);
 			let trapDesc = getRandomElement(allTraps[chooseTrap]);
-			document.getElementById("trapTitle").innerHTML = trapDesc.type;
+			document.getElementById("trapTitle").firstChild.data = trapDesc.type;
 			if(chooseTrap == 'jungleTraps'){
 				document.getElementById("traps").innerHTML = '<b>'+trapDesc.description+'</b>:<br>'+trapDesc.consequence;
 			}else if(chooseTrap == 'animalTraps'){
@@ -145,10 +178,10 @@
 				document.getElementById("traps").innerHTML = '<b>'+trapDesc.description+'</b>:<br>'+trapDesc.consequence;
 			}
 		}
-	rollAllTables(); // Roll all tables when the page loads
-        const rollButton = document.getElementById("rollButton")
-        rollButton.addEventListener("click", rollAllTables);
-    </script>
-  
+		
+    const rollButton = document.getElementById("rollButton")
+    rollButton.addEventListener("click", rollAllTables);
+  </script>
+ 
 </body>
 </html>
