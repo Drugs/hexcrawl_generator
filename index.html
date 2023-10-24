@@ -120,8 +120,6 @@
             }
 	
         }
-
-        rollAllTables(); // Roll all tables when the page loads
 		
 		function showButton(arg , div) {
 		  const button = document.getElementById(div);
@@ -147,7 +145,7 @@
 				document.getElementById("traps").innerHTML = '<b>'+trapDesc.description+'</b>:<br>'+trapDesc.consequence;
 			}
 		}
-		
+	rollAllTables(); // Roll all tables when the page loads
         const rollButton = document.getElementById("rollButton")
         rollButton.addEventListener("click", rollAllTables);
     </script>
