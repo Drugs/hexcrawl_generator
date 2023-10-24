@@ -96,6 +96,7 @@
             document.getElementById("daytimeFauna").textContent = getRandomElement(daytimeFauna);
             document.getElementById("nighttimeFauna").textContent = getRandomElement(nighttimeFauna);
             document.getElementById("engagementDistance").innerHTML = getRandomElement(engagementDistance);
+	    rolltraps();
             let chosen = getRandomElement(choose);
             let mishap = getRandomElement(mishaps);
             let test = eval(mishap);
@@ -117,6 +118,7 @@
                 humanoid += '<br><b>On the way, you find:</b>'+getRandomElement(humanTracks);
                 document.getElementById("choose").innerHTML = humanoid;
             }
+	
         }
 
         rollAllTables(); // Roll all tables when the page loads
@@ -145,7 +147,7 @@
 				document.getElementById("traps").innerHTML = '<b>'+trapDesc.description+'</b>:<br>'+trapDesc.consequence;
 			}
 		}
-		rolltraps();
+		
         const rollButton = document.getElementById("rollButton")
         rollButton.addEventListener("click", rollAllTables);
     </script>
